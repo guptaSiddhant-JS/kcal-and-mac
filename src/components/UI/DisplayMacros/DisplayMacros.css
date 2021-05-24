@@ -1,0 +1,8 @@
+.displayMacros__elements{
+    width : 100px;
+    height:50px;
+    background-color:red;
+    margin:2px;
+    display:inline-block;
+
+}

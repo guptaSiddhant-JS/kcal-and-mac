@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './UserSearch.css'
 const UserSearch = () => {
     const [enteredAge, setEnteredAge] = useState('');
     const [enteredHeight, setEnteredHeight] = useState('');
@@ -32,26 +33,26 @@ const UserSearch = () => {
      }
 
   return (
-      <div> 
-          <form onSubmit={submitHandler} > 
+      <div className="search__container"> 
+          <form onSubmit={submitHandler} className="search__inputs" > 
           {/* Age */}
-          <div>
-            <label>Age</label>
-            <input type='number' value={enteredAge} onChange={getAgeHandler} />
+          <div className="search__input">
+            
+            <input type='number' value={enteredAge} onChange={getAgeHandler}  placeholder="Age" />
           </div>
           {/* Height */}
-          <div>
-             <label>Height</label>
-            <input type='number' value={enteredHeight} onChange={getHeightHandler} />
+          <div className="search__input">
+            
+            <input type='number' value={enteredHeight} onChange={getHeightHandler} placeholder="Height (cm)" />
           </div>
           {/* Weight */}
-          <div>
-             <label>Weight</label>
-            <input  type='number' value={enteredWeight} onChange={getWeightHandler} />
+          <div className="search__input">
+             
+            <input  type='number' value={enteredWeight} onChange={getWeightHandler} placeholder="Weight (kg)" />
           </div>
           {/* Gender */}
-          {/* <div>
-             <label>Gender</label>
+          {/* <div >
+             
              <div>
                 <input type="radio" value="Male" name="gender" /> Male
                 <input type="radio" value="Female" name="gender" /> Female
