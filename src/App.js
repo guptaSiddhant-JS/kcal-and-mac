@@ -1,23 +1,11 @@
 
 import './App.css';
-import Header from './components/UI/Header/Header.jsx'
-import Section1 from './Section1/Section1.jsx'
-import UserOptions from './components/UI/User Options/UserOptions.jsx'
-import DisplayResult from './components/UI/Displaying Result/DisplayResult.jsx'
-import DisplayMacros from './components/UI/DisplayMacros/DisplayMacros.jsx'
-import Footer from './components/Footer/Footer.jsx'
+import UserInput from './components/UI/UserInput/UserInput.jsx'
 function App() {
   return (
     <div className="App">
-    <Header />
-     <Section1/>
-     {/* <DisplayResult />
-     <div>
-        <div className="topPlane"> <DisplayMacros /> </div>
-        <div className="bottomPlane"><UserOptions /></div>
-               
-     </div>
-      <Footer /> */}
+     <h1> Calories & Macros</h1>
+     <UserInput />
     </div>
   );
 }
