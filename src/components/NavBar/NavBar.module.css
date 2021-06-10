@@ -1,0 +1,20 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@700&display=swap');
+.nav{
+    margin:3%;
+    padding:0;
+}
+.header{
+    margin:0;
+    color:#54e346;
+    font-weight:bold;
+    font-size:60px;
+    font-family: 'Mukta', sans-serif;
+    text-shadow: 2px 5px #ccffbd;
+}
+
+.para{
+    margin:0;
+    font-size:20px;
+     font-weight:large; 
+}

@@ -1,0 +1,23 @@
+.root{
+    margin:0% 0% 2% 16%;
+     display:flex;
+    
+}
+
+
+.userInputCard{
+    margin-top:12%;
+    width:65%;
+    height:30vh;
+    padding:4%;
+  
+    text-align:center;
+}
+.contextCard{ 
+    margin-left:20px;
+    width:25vh;
+    height:60vh;
+    left:0; 
+    border-color:red;
+   
+}
