@@ -1,35 +1,20 @@
-// import React , {useState } from "react";
+import React , {useState } from "react";
 import Card from '../Card/Card.js';
-import UserInputKg from '../../UserInput/UserInputKg.js';
-// import UserInputLbs from '../../UserInput/UserInputLbs.js';
-// import InputLabel from '@material-ui/core/InputLabel';
-// import MenuItem from '@material-ui/core/MenuItem';
-// import FormControl from '@material-ui/core/FormControl';
-// import Select from '@material-ui/core/Select';
+import UserInput from '../../UserInput/UserInput';
+import ResultDisplay from './ResultDisplay.js';
 import style from './HomeDisplay.module.css';
 const HomeDisplay = () =>{
-    // const standerdCal = (el) =>{
-    //     const recivedStanderd = el.target.value;
-    //     switch(recivedStanderd){
-    //         case 'kg':inputStanderd = false; break;
-    //         case 'lbs':inputStanderd = true;break;    
-    //         default : return;
-    //     }
-    // }
+  const [recivedKcal=0, setRecivedKcal] = useState();
+  
+ const saveResultData = result =>{
+      setRecivedKcal(result);
+ }
+    
   return(
+    <>
     <div className={style.root}>
        <Card className={style.userInputCard}>
-          {/* <FormControl >
-          <InputLabel>Standerd</InputLabel>
-        <Select
-          value={inputStanderd}
-          onChange={standerdCal}
-        >
-          <MenuItem value={'kd'}>Kg/feet</MenuItem>
-          <MenuItem value={'lbs'}>lbs/cm</MenuItem>
-        </Select>
-         </FormControl> */}
-        <UserInputKg />
+        <UserInput onSaveResult={saveResultData} />
        </Card>
        <Card className={style.contextCard}>
 
@@ -44,7 +29,10 @@ const HomeDisplay = () =>{
             over the years, sometimes by accident, sometimes on purpose (injected humour
              and the like).</p></div>
        </Card>
+      
     </div>
+     <ResultDisplay resultData={recivedKcal}/>
+    </>
   );
 }
 export default HomeDisplay;   

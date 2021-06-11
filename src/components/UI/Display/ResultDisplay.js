@@ -1,15 +1,21 @@
+
 import KcalDisplay from "./KcalDisplay.js";
 import MacrosDisplay from "./MacrosDisplay.js";
 import OptionDisplay from "./OptionDisplay.js";
+import BMIDisplay from "./BMIDisplay.js";
 import style from './ResultDisplay.module.css';
-const ResultDisplay = () =>{
+const ResultDisplay = (props) =>{
+ const showData = true;
+  
+  
   return(
       <div className={style.root}>
       <div className={style.containerLeft}>
-      <KcalDisplay />
-      <MacrosDisplay />
+      {showData && <KcalDisplay result={props.resultData}/>}
+      <BMIDisplay result={props.resultData} />
+      {showData && <MacrosDisplay result={props.resultData}/>}
       </div>
-      <div className={style.containerRight}><OptionDisplay /></div>
+      {showData && <div className={style.containerRight}><OptionDisplay /></div>}
       </div>
   );
 }

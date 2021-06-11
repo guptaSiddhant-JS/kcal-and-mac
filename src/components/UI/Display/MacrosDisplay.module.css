@@ -1,5 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@700&display=swap');
 .mainCard{
     margin-top:2%;
-    height:45vh;
-  
+    height:60vh;
+    display:flex;
+    /* background-image: linear-gradient(to bottom right,white, #a2b29f); */ 
+}
+.data{
+    width:50%;
+    margin:2%;
+
+}
+.subCard{
+    width:70%;
+    margin:4%;
+    font-weight:bold;
+    text-align:center;
+    font-family: 'Mukta', sans-serif;
+
+   
+}
+.protein{ background-image: linear-gradient(to top right,white, #ff003a)}
+.carb{ background-image: linear-gradient(to top right,white, #9afc60)}
+.fat{ background-image: linear-gradient(to top right,white, #f5fb3a)}
+.chart{
+ margin-top:3%;
+ width:60%;   
+    
 }
