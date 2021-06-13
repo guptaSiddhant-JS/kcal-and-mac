@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
+import FormHelperText from '@material-ui/core/FormHelperText';
 import Select from '@material-ui/core/Select'; 
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
@@ -15,6 +16,11 @@ const UserInput = (props) =>{
     const [activity, setActivity] = useState('');
     const [gender, setGender] = useState('');
     const [toggleBtn, setToggleBtn] = useState(false);
+    const [errAge, setErrAge] = useState();
+    const [errWeight, setErrWeight] = useState();
+    const [errHeight, setErrHeight] = useState();
+    const [errGender, setErrGender] = useState();
+    const [errActivity, setErrActivity] = useState();
     // const [resultState = 0 , setResultState] = useState();
     // css
     const useStyles = makeStyles((theme) => ({
@@ -34,6 +40,27 @@ const UserInput = (props) =>{
    
  
     const calculate = (el) =>{
+      if(age === "" || age <=0 || age >= 90) { 
+        setErrAge(true);
+        return;
+      }
+       if(weight === "" || weight <=30 || weight >= 200) { 
+        setErrWeight(true);
+        return;
+      }
+       if(height === "" || height <=60  || height >= 250) { 
+        setErrHeight(true);
+        return;
+      }
+     if(gender === ''){
+       setErrGender(true);
+       return;
+     }
+     if(activity === ''){
+       setErrActivity(true);
+       return;
+     }
+    
      let result = 0;
      const BMI =( weight / Math.pow((height/100) , 2)).toFixed(1);
         if (gender === 'M'){
@@ -62,8 +89,8 @@ const UserInput = (props) =>{
         setAge('');
         setHeight('');
         setWeight('');
-        setGender(null);
-        setActivity(null);
+        setGender('');
+        setActivity('');
         setToggleBtn(prev=> !prev);
         props.onSaveToggle(toggleBtn);
       }
@@ -73,28 +100,49 @@ const UserInput = (props) =>{
    return (
      <>
        <form className={classes.root} autoComplete="off"  > 
-             <TextField value={age}  type="number" label="Age" variant="outlined"   onChange={(el) => setAge(el.target.value)}/>
-             <TextField value={weight}  type="number" label="Weight" variant="outlined" onChange={(el) => setWeight(el.target.value)} />
-             <TextField value={height} type="number" label="Height" variant="outlined"   onChange={(el) => setHeight(el.target.value)}  /><br/>
+             <TextField 
+             autoFocus
+             value={age}  
+             type="number" 
+             label="Age" 
+             variant="outlined"
+              {...errAge && {error:true , helperText:"Enter a valid Age !"}}  
+              onChange={(el) => {setAge(el.target.value) ; setErrAge(false)}}
+              />
+             <TextField 
+             value={weight}  
+             type="number" 
+             label="Weight" 
+             variant="outlined" 
+             {...errWeight && {error:true , helperText:"Enter a valid Weight !"}}  
+             onChange={(el) => {setWeight(el.target.value) ; setErrWeight(false)}} 
+             />
+             <TextField 
+             value={height} 
+             type="number" 
+             label="Height" 
+             variant="outlined" 
+             {...errHeight && {error:true , helperText:"Enter a valid Height !"}}    
+             onChange={(el) => {setHeight(el.target.value)  ; setErrHeight(false)}} 
+              /><br/>
              {/*  */}
-             <FormControl >
+             <FormControl error={errGender} >
         <InputLabel >Gender</InputLabel>
         <Select
           value={gender}
-          onChange={(el) => setGender(el.target.value)}
-         
+          onChange={(el) => {setGender(el.target.value) ; setErrGender(false)}}
         >
           <MenuItem value={'M'}>Male</MenuItem>
           <MenuItem value={'F'}>Female</MenuItem>
         </Select>
+       {errGender && <FormHelperText>Select a Valid Gender!</FormHelperText>}
          </FormControl>
              {/*  */}
-        <FormControl >
+        <FormControl  error={errActivity}>
         <InputLabel >Activity Level</InputLabel>
         <Select
-          value={activity}
-          onChange={(el) => setActivity(el.target.value)}
-
+          value={activity === -1 ? '' : activity}
+          onChange={(el) => {setActivity(el.target.value) ; setErrActivity(false)}}
         >
           <MenuItem value={1.2}>little or no exercise</MenuItem>
           <MenuItem value={1.375}>exercise 1–3 days/week</MenuItem>
@@ -102,6 +150,7 @@ const UserInput = (props) =>{
            <MenuItem value={ 1.725}>exercise 6–7 days/week</MenuItem>
           <MenuItem value={1.9}>hard exercise 6–7 days/week</MenuItem>
         </Select>
+        {errActivity && <FormHelperText>Select a Valid Activity!</FormHelperText>}
       </FormControl>
              <Button  variant="contained"  onClick={ toggleBtn ? reset : calculate}> { toggleBtn ? 'Reset' : "Calculate "}</Button>
        </form>

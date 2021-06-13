@@ -12,8 +12,9 @@ const MacrosDisplay = (props) =>{
  const [protein=0, setProtein] = useState();
    const [carb=0, setCarb] = useState();
    const [fat=0, setFat] = useState();
-   const [kcal, setKcal] = useState();
+   const [kcal=0, setKcal] = useState();
    const [macroSplit, setMacroSplit] = useState('');
+   const [errKcal, setErrKcal] = useState();
    
    const useStyles = makeStyles((theme) => ({
       root: {
@@ -37,7 +38,7 @@ const MacrosDisplay = (props) =>{
    }
      
    const splitCal = (el) =>{
-    
+    console.log(kcal);
          setMacroSplit(el.target.value);
        switch (el.target.value) {
            case 'k':
@@ -83,8 +84,8 @@ const MacrosDisplay = (props) =>{
           value={macroSplit}
           onChange={splitCal}
         >
-          <MenuItem value={'k'}>Keto [30:0:70]</MenuItem>
-          <MenuItem value={'hp'}>Height Protein [30:0:70]</MenuItem>
+          <MenuItem value={'k'}>Keto [30:5:65]</MenuItem>
+          <MenuItem value={'hp'}>Height Protein [50:30:20]</MenuItem>
           <MenuItem value={'hc'}>Height Carb [30:50:20]</MenuItem>
           <MenuItem value={'b'}>Balance [40:40:20]</MenuItem>
         </Select> 
