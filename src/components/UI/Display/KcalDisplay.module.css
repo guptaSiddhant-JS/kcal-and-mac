@@ -1,6 +1,6 @@
 .mainCard{
 
-    height:38vh;
+    height:35vh;
     opacity:0;
     animation: main 1s ease-out forwards;
   
@@ -12,7 +12,13 @@
    margin: 1%;
    padding:0 2%;
    font-weight:bold;
-   
+}
+.elementCard:hover{
+  margin:1% 0;
+  padding:0.5%;
+  font-size:22px;
+  width:110;
+  height:22%;
 }
 .maintanace{
   background-image: linear-gradient(to bottom right, yellow, white);

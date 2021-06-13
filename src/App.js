@@ -5,11 +5,14 @@ import HomeDisplay from './components/UI/Display/HomeDisplay.js';
 
 function App() {
   return (
+    <>
+    <div className="img"></div>
     <div className="App">
       <NavBar />
       <HomeDisplay />
       
     </div>
+    </>
   );
 }
 

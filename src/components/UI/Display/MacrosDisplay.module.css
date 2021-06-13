@@ -19,9 +19,9 @@
 
    
 }
-.protein{ background-image: linear-gradient(to top right,white, #ff003a)}
-.carb{ background-image: linear-gradient(to top right,white, #9afc60)}
-.fat{ background-image: linear-gradient(to top right,white, #f5fb3a)}
+.protein{ background-image: linear-gradient(to top left,white, #ff003a)}
+.carb{ background-image: linear-gradient(to top left,white, #9afc60)}
+.fat{ background-image: linear-gradient(to top left,white, #f5fb3a)}
 .chart{
  margin-top:3%;
  width:60%;   

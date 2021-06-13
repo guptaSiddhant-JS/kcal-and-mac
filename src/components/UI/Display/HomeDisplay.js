@@ -5,33 +5,36 @@ import ResultDisplay from './ResultDisplay.js';
 import style from './HomeDisplay.module.css';
 const HomeDisplay = () =>{
   const [recivedKcal=0, setRecivedKcal] = useState();
-  
+ const [BMI, setBMI] = useState();
+ const [toggleBtn, setToggleBtn] = useState(false);
  const saveResultData = result =>{
       setRecivedKcal(result);
  }
-    
+  const saveBMI = b =>{
+         setBMI(b);
+  }  
+  const saveToggle = t =>{setToggleBtn(prev => !prev)}
   return(
     <>
     <div className={style.root}>
        <Card className={style.userInputCard}>
-        <UserInput onSaveResult={saveResultData} />
+        <UserInput onSaveResult={saveResultData} onSaveBMI={saveBMI} onSaveToggle={saveToggle} />
        </Card>
-       <Card className={style.contextCard}>
+      {toggleBtn && <Card className={style.contextCard}>
 
-         <div> <p>It is a long established fact that a reader will
-          be distracted by the readable content of a page when looking 
-          at its layout. The point of using Lorem Ipsum is that it has a
-           more-or-less normal distribution of letters, as opposed to using 
-           'Content here, content here', making it look like readable English. 
-           Many desktop publishing packages and web page editors now use Lorem 
-           Ipsum as their default model text, and a search for 'lorem ipsum' will 
-           uncover many web sites still in their infancy. Various versions have evolved
-            over the years, sometimes by accident, sometimes on purpose (injected humour
-             and the like).</p></div>
-       </Card>
+         <div> <p>A calorie is a unit of energy measurement. 
+         Calories are a unit of measurement for the amount of 
+         energy in meals and beverages. To lose weight, you must
+          consume less calories each day than your body burns.</p><br />
+          <p>  Protein, carbs, and fats are the three types of nutrients
+           you consume the most and which give you with the majority of 
+           your energy. When you count your macros, you're keeping track
+            of how many grammes of protein, carbs, or fat you're consuming.</p>
+          </div>
+       </Card>}
       
     </div>
-     <ResultDisplay resultData={recivedKcal}/>
+     {toggleBtn && <ResultDisplay resultData={recivedKcal} resultBMI={BMI} />}
     </>
   );
 }

@@ -1,20 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@1&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@700&display=swap');
-.nav{
-    margin:3%;
-    padding:0;
-}
+ .img{
+        background-image: url("wall.jpg");
+        /* filter: blur(2px); */
+        /* -webkit-filter: blur(8px); */
+        height: 20vh;
+        /* width:70%; */
+        margin:2% ;
+      
+
+    background-position: center;
+   
+    }
+    
+    .nav{
+      
+       
+        margin:2%;
+       
+        
+    } 
 .header{
-    margin:0;
+    margin:1%;
+    top:0;
+    position:absolute;
     color:#54e346;
+    transform: translate(155%, 80%);
+      z-index: 2;
     font-weight:bold;
-    font-size:60px;
-    font-family: 'Mukta', sans-serif;
+    font-size:90px;
+    font-family: 'Dancing Script', cursive;
     text-shadow: 2px 5px #ccffbd;
+    
 }
 
 .para{
-    margin:0;
-    font-size:20px;
-     font-weight:large; 
+   
+    font-size:30px;
+     /* font-weight:bold;  */
+     font-family: 'Cormorant Garamond', serif;
+     text-align:center;
+     width:70%;
+     margin: 4% 15%;
 }

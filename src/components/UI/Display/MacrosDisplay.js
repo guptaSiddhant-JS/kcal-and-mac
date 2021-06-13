@@ -7,13 +7,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
-import PieChart from "../../Chart/Chart";
+import MacroChart from "../../Chart/MacroChart";
 const MacrosDisplay = (props) =>{
  const [protein=0, setProtein] = useState();
    const [carb=0, setCarb] = useState();
    const [fat=0, setFat] = useState();
    const [kcal, setKcal] = useState();
-   const [macroSplit, setMacroSplit] = useState();
+   const [macroSplit, setMacroSplit] = useState('');
    
    const useStyles = makeStyles((theme) => ({
       root: {
@@ -33,17 +33,17 @@ const MacrosDisplay = (props) =>{
    const classes = useStyles();
    const textHandler = (el) =>{
      setKcal(el.target.value);
-
+     
    }
+     
    const splitCal = (el) =>{
-       const recivedData = el.target.value;
-         setMacroSplit(recivedData);
-        
-       switch (recivedData) {
+    
+         setMacroSplit(el.target.value);
+       switch (el.target.value) {
            case 'k':
                p = kcal * 0.3;
-               f = kcal * 0.7;
-               c = 0;
+               f = kcal * 0.65;
+               c = kcal *0.05;
                break;
            case 'hc':
                p = kcal * 0.3;
@@ -61,7 +61,9 @@ const MacrosDisplay = (props) =>{
                f = kcal * 0.2;
                c = kcal *0.4;
                break;
-               default:
+               default: p = 0;
+               f =0;
+               c = 0;
                  break;
        }
            setProtein((p/4).toFixed());
@@ -89,11 +91,11 @@ const MacrosDisplay = (props) =>{
          </FormControl>
          </div>
          <Card className={`${styles.subCard} ${styles.protein}`}><h2>  {protein} grams</h2><p>Protien</p></Card>
-         <Card className={`${styles.subCard} ${styles.carb}`}><h2>  {carb} grams</h2><p>Carb</p></Card>
+         <Card className={`${styles.subCard} ${styles.carb}`}><h2>  {carb} grams</h2><p>Carbohydrate</p></Card>
          <Card className={`${styles.subCard} ${styles.fat}`}> <h2> {fat} grams</h2><p>Fat</p></Card>             
         </div>
             <div className={styles.chart} >
-               <PieChart data={dataArr} />
+               <MacroChart data={dataArr} />
             </div>
          </Card>
       </>

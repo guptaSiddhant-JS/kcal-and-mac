@@ -6,18 +6,25 @@
 
 
 .userInputCard{
-    margin-top:12%;
+    margin-left:6%;
     width:65%;
-    height:30vh;
+    height:20vh;
     padding:4%;
-  
     text-align:center;
 }
 .contextCard{ 
     margin-left:20px;
-    width:25vh;
-    height:60vh;
+    width:20vh;
+    height:50vh;
     left:0; 
     border-color:red;
+     opacity:0;
+    animation: main 1s ease-out forwards;
    
+}
+
+@keyframes main{
+  100%{
+    opacity:1;
+  }
 }
