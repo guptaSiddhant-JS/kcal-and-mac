@@ -29,6 +29,9 @@ const UserInput = (props) =>{
       marginTop:'2%',
       margin: theme.spacing(3),
       width: '30ch',
+      color:'white',
+      
+      backgoundColor:'white',
       
     },
    
@@ -62,14 +65,17 @@ const UserInput = (props) =>{
      }
     
      let result = 0;
+     let BMR = 0;
      const BMI =( weight / Math.pow((height/100) , 2)).toFixed(1);
         if (gender === 'M'){
             // For men, BMR = 66.47 + (13.75 x weight in kg) + (5.003 x height in cm) - (6.755 x age in years)
-            result =  ((66.47 + (13.75 * weight) + (5.003 * height) - (6.755 * age)) * activity ).toFixed(0);
+            BMR = (66.47 + (13.75 * weight) + (5.003 * height) - (6.755 * age)).toFixed(0);
+            result =  ( BMR * activity ).toFixed(0);
 
         }else{
             // For women, BMR = 655.1 + (9.563 x weight in kg) + (1.850 x height in cm) - (4.676 x age in years)
-            result =  ((655.1 + (9.563 * weight) + (1.850 * height) - (4.676 * age)) *activity ).toFixed(0);
+            BMR = (655.1 + (9.563 * weight) + (1.850 * height) - (4.676 * age)).toFixed(0);
+            result =  ( BMR *activity ).toFixed(0);
 
         }
       //  const dataObj = {
@@ -81,6 +87,7 @@ const UserInput = (props) =>{
       //  }
         props.onSaveResult(result);
         props.onSaveBMI(BMI);
+        props.onSaveBMR(BMR);
         props.onSaveToggle(toggleBtn);
        setToggleBtn(prev=> !prev);
         

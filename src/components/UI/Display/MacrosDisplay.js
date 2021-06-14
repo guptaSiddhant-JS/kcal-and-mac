@@ -74,7 +74,11 @@ const MacrosDisplay = (props) =>{
    const dataArr =  [kcal, protein , carb , fat];
   return(
     <>
-      <Card className={styles.mainCard}>
+      <Card className={styles.mainCard} >
+      <div className={styles.title}> 
+          <h2>Macros Distribution <hr/></h2>
+      </div>
+      <div className={styles.content}>
        <div className={styles.data}>
        <div className={classes.root}>
        <TextField value={kcal} type="number" label="Calorie" variant="outlined" onChange={textHandler}/>
@@ -98,6 +102,11 @@ const MacrosDisplay = (props) =>{
             <div className={styles.chart} >
                <MacroChart data={dataArr} />
             </div>
+        </div>
+        <p className={styles.infoPara}>The amounts of macronutrients and dietary energy (Calories)
+         you should consume everyday to maintain your weight are listed below. The quantity of each 
+         macronutrient is displayed as a range of values. Please select the option that best meets your
+          requirements, or make your own plan.</p>
          </Card>
       </>
   );

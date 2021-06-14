@@ -10,6 +10,9 @@ const KcalDisplay = (props) =>{
   return(
       <>
          <Card className={styles.mainCard}>
+            <div className={styles.title}> 
+          <h2>Calories(kcals)/day<hr/></h2>
+      </div>
             <Card className={`${styles.elementCard} ${styles.eWL}`}  >
               <p> Extreme Weight Loss (-500)</p> 
               <p> {eWL} kcals</p>
@@ -29,7 +32,10 @@ const KcalDisplay = (props) =>{
             <Card  className={`${styles.elementCard} ${styles.eWG}`}>
               <p> Extreme Weight Gain (+500)</p> 
               <p> {eWG} kcals</p>
-            </Card>     
+            </Card>  
+            <p className={styles.infoPara}> The results provide a variety of daily calorie estimations that may
+             be used as a guideline for how many calories to consume each day in 
+             order to maintain, lose, or gain weight at a specific pace.</p>   
          </Card>
       </>
   );
