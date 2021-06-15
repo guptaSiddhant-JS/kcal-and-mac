@@ -50,6 +50,14 @@ hr{
     font-weight:bold;
     opacity:0.6;
 }
+@media  (max-width: 900px){
+.mainCard{
+    margin:3.5%;   
+    width:88%;
+    font-size:90%;
+   
+}
+}
 @keyframes main{
   100%{
     opacity:1;

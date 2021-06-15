@@ -20,13 +20,11 @@ const MacrosDisplay = (props) =>{
       root: {
     '& > *': {
       margin: theme.spacing(1),
-      width: '20ch',
-      
-      
+      width: '20ch', 
     },
    
   },
-
+ 
   }));
    let p = 0;
    let c = 0;

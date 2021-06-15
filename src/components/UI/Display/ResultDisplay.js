@@ -21,7 +21,7 @@ const ResultDisplay = (props) =>{
       <div data-aos="fade-up"><KcalDisplay result={props.resultData}/></div>
        <div data-aos="fade-up"><MacrosDisplay result={props.resultData}/></div>
       </div>
-      <div data-aos="fade-up" className={style.containerRight}><NotesDisplay /></div>
+      {/* <div data-aos="fade-up" className={style.containerRight}><NotesDisplay /></div> */}
       </div>
   );
 }

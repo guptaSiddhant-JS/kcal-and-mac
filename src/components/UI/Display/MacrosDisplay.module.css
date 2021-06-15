@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@700&display=swap');
+
 .mainCard{
-    margin:4% 0 ;
-    
-    /* background-image: linear-gradient(to bottom right,white, #a2b29f); */ 
+    margin:3.5%;   
+    width:88%;
+    font-size:90%;
+   
 }
 /* Title */
 .title{
@@ -19,17 +21,15 @@ hr{
     border-radius:40px 0 0 0;
 }
 .content{
-display:flex;
+margin:4%;
 }
 .data{
-    width:50%;
-    margin:2%;
-
+   /* margin-left:4%; */
 }
-.subCard{
-    width:70%;
-    margin:6% 4% ;
-    padding:4%;
+
+.subCard{  
+    margin:6%;
+    padding:6%;
     font-weight:bold;
     text-align:center;
     font-family: 'Mukta', sans-serif;   
@@ -38,11 +38,34 @@ display:flex;
 .carb{ background-image: linear-gradient(to top left,white, #9afc60)}
 .fat{ background-image: linear-gradient(to top left,white, #f5fb3a)}
 .chart{
- margin-top:3%;
- width:60%;   
+ /* margin:3%; */
+   
 }
 .infoPara{
     color:grey;
     font-weight:bold;
     opacity:0.6;
+}
+
+@media  (min-width: 900px){
+.mainCard{
+    margin:4% 0 ;
+}
+.content{
+display:flex;
+}
+.data{
+    width:50%;
+    margin:2%;
+}
+.subCard{
+    width:70%;
+    margin:6% 4% ;
+    padding:4%;
+}
+.chart{
+ margin-top:3%;
+ width:60%;   
+ 
+}
 }

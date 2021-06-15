@@ -40,43 +40,22 @@ const HomeDisplay = () =>{
         </div>
         <div className={styles.inputContainer}>
         <Card className={styles.userInputCard}>
-           <UserInput onSaveResult={saveResultData} onSaveBMI={saveBMI} onSaveBMR={saveBMR} onSaveToggle={saveToggle} />
+           <UserInput 
+           onSaveResult={saveResultData} 
+           onSaveBMI={saveBMI} 
+           onSaveBMR={saveBMR} 
+           onSaveToggle={saveToggle} 
+           />
         </Card>
         </div>
       </div>
      </div>
-    <ResultDisplay resultData={recivedKcal} resultBMI={BMI} resultBMR={BMR} />
+    <ResultDisplay 
+    resultData={recivedKcal} 
+    resultBMI={BMI} 
+    resultBMR={BMR} 
+    />
     </>
   );
 }
 export default HomeDisplay;   
-//  <div className={style.img}> </div>
-//         <div className={style.nav}>
-//            <h1 className={style.header}>Kcal & Mac </h1>
-           
-//            {/* <p className={style.para}>“When Diet Is Wrong, Medicine Is of No Use. When Diet Is Correct, Medicine Is of No Need.”</p>
-//            <p className={style.para}>Poor nutrition can result in nutrient deficiency diseases
-//             like blindness,anaemia, scurvy, preterm birth, stillbirth, and cretinism, as well 
-//             as nutrient excess health-threatening conditions like obesity and metabolic syndrome, 
-//             as well as common chronic systemic diseases like cardiovascular disease, diabetes, and
-//              osteoporosis. In severe situations of malnutrition, wasting can occur..</p> */}
-//         </div>
-//     <div className={style.root}>
-//        <Card className={style.userInputCard}>
-//         <UserInput onSaveResult={saveResultData} onSaveBMI={saveBMI} onSaveToggle={saveToggle} />
-//        </Card>
-//       {/* {toggleBtn && <Card className={style.contextCard}>
-
-//          <div> <p>A calorie is a unit of energy measurement. 
-//          Calories are a unit of measurement for the amount of 
-//          energy in meals and beverages. To lose weight, you must
-//           consume less calories each day than your body burns.</p><br />
-//           <p>  Protein, carbs, and fats are the three types of nutrients
-//            you consume the most and which give you with the majority of 
-//            your energy. When you count your macros, you're keeping track
-//             of how many grammes of protein, carbs, or fat you're consuming.</p>
-//           </div>
-//        </Card>} */}
-      
-//     </div>
-//      {toggleBtn && <ResultDisplay resultData={recivedKcal} resultBMI={BMI} />}
