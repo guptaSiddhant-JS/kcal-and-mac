@@ -28,7 +28,8 @@ display:flex;
 }
 .subCard{
     width:70%;
-    margin:4%;
+    margin:6% 4% ;
+    padding:4%;
     font-weight:bold;
     text-align:center;
     font-family: 'Mukta', sans-serif;   

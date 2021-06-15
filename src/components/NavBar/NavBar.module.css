@@ -2,12 +2,26 @@
 
 .nav{
     top:0;
+    padding:4px ;
     width:200vh;
     height:8vh;
-    background-color:powderblue;
+    background-color:#00f77a;
+    display:flex;
+    justify-content:space-between;
     /* position:fixed; */
     
 }
-h1{
-    margin:0;
+.heading{
+    color:white;
+    font-weight:large;
+    font-size:40px;
+    margin:2px 0  0 200px;
+}
+.tags{
+    display:flex;
+    padding:20px;
+    margin: 0 200px;
+}
+.tags h3{
+    margin:5px 20px;
 }

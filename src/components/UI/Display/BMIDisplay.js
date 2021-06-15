@@ -23,7 +23,7 @@ const BMIDisplay = (props) =>{
           <h2>Body Mass Index(BMI)<hr/></h2>
       </div>
           <div className={styles.content}>  
-          <h1>{BMI} <span>Kg/m^2</span></h1>
+          <h1>{BMI} <span className={styles.unit}>Kg/m^2</span></h1>
           </div>
           <div className={styles.heads}>
              <h2 className={`${styles.head} ${styles.head1} ${uW ? styles.headLevel : ''}`}>Underweight</h2>

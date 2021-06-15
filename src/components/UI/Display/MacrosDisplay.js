@@ -12,7 +12,7 @@ const MacrosDisplay = (props) =>{
  const [protein=0, setProtein] = useState();
    const [carb=0, setCarb] = useState();
    const [fat=0, setFat] = useState();
-   const [kcal=0, setKcal] = useState();
+   const [kcal, setKcal] = useState('');
    const [macroSplit, setMacroSplit] = useState('');
    const [errKcal, setErrKcal] = useState();
    
@@ -34,11 +34,14 @@ const MacrosDisplay = (props) =>{
    const classes = useStyles();
    const textHandler = (el) =>{
      setKcal(el.target.value);
-     
+     setErrKcal(false);
    }
      
    const splitCal = (el) =>{
-    console.log(kcal);
+     if(kcal === "" || kcal <=200 || kcal >= 9999) { 
+        setErrKcal(true);
+        return;
+      }
          setMacroSplit(el.target.value);
        switch (el.target.value) {
            case 'k':
@@ -81,7 +84,13 @@ const MacrosDisplay = (props) =>{
       <div className={styles.content}>
        <div className={styles.data}>
        <div className={classes.root}>
-       <TextField value={kcal} type="number" label="Calorie" variant="outlined" onChange={textHandler}/>
+       <TextField 
+       value={kcal} 
+       type="number" 
+       label="Calorie" 
+       variant="outlined" 
+       {...errKcal && {error:true , helperText:"Enter a valid Calories!"}} 
+       onChange={textHandler}/>
          <FormControl >
           <InputLabel>Split [P:C:F]</InputLabel>
         <Select
@@ -104,7 +113,7 @@ const MacrosDisplay = (props) =>{
             </div>
         </div>
         <p className={styles.infoPara}>The amounts of macronutrients and dietary energy (Calories)
-         you should consume everyday to maintain your weight are listed below. The quantity of each 
+         you should consume everyday to maintain your weight are listed above. The quantity of each 
          macronutrient is displayed as a range of values. Please select the option that best meets your
           requirements, or make your own plan.</p>
          </Card>

@@ -21,6 +21,9 @@ hr{
     color:grey;
   
 }
+.unit{
+    font-size:20px;
+}
 .heads{
     display:flex;
     padding:1%;

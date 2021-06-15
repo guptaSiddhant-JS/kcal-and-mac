@@ -2,7 +2,8 @@ import React , {useState } from "react";
 import Card from '../Card/Card.js';
 import UserInput from '../../UserInput/UserInput';
 import ResultDisplay from './ResultDisplay.js';
-import style from './HomeDisplay.module.css';
+import styles from './HomeDisplay.module.css';
+import HelpIcon from '@material-ui/icons/Help';
 const HomeDisplay = () =>{
   const [recivedKcal=0, setRecivedKcal] = useState();
  const [BMI, setBMI] = useState();
@@ -20,14 +21,31 @@ const HomeDisplay = () =>{
   const saveToggle = t =>{setToggleBtn(prev => !prev)}
   return(
     <>
-     <div className={style.img}> </div>
-     <div className={style.root}>
-     {/* <div><h1 className={style.header}>al & Mac </h1></div> */}
-     <Card className={style.userInputCard}>
-         <UserInput onSaveResult={saveResultData} onSaveBMI={saveBMI} onSaveBMR={saveBMR} onSaveToggle={saveToggle} />
+    
+     <div className={styles.root}>
+      <div className={styles.nav}> 
+                 <div>  
+                 </div>
+                 <div className={styles.tags} >
+                     <h3 >Services</h3>
+                    <HelpIcon />
+                 </div>
+                 
+          </div>
+
+     <div className={styles.main} > 
+        <div className={styles.headContainer}> 
+        <h1 className={styles.heading}>kcal & mac</h1>
+        <h2 className={styles.subHeading}> Calories and Macronutrients Calculater</h2>
+        </div>
+        <div className={styles.inputContainer}>
+        <Card className={styles.userInputCard}>
+           <UserInput onSaveResult={saveResultData} onSaveBMI={saveBMI} onSaveBMR={saveBMR} onSaveToggle={saveToggle} />
         </Card>
+        </div>
+      </div>
      </div>
-   <ResultDisplay resultData={recivedKcal} resultBMI={BMI} resultBMR={BMR} />
+    <ResultDisplay resultData={recivedKcal} resultBMI={BMI} resultBMR={BMR} />
     </>
   );
 }

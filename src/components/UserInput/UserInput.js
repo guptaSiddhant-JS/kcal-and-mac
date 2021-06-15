@@ -21,21 +21,25 @@ const UserInput = (props) =>{
     const [errHeight, setErrHeight] = useState();
     const [errGender, setErrGender] = useState();
     const [errActivity, setErrActivity] = useState();
-    // const [resultState = 0 , setResultState] = useState();
     // css
     const useStyles = makeStyles((theme) => ({
       root: {
     '& > *': {
-      marginTop:'2%',
-      margin: theme.spacing(3),
-      width: '30ch',
-      color:'white',
-      
-      backgoundColor:'white',
+      margin: theme.spacing(1),
+      width: '40ch',
+     
       
     },
-   
+ 
   },
+    btn:{
+      fontSize:'15px',
+      color:'black',
+      width: '30ch',
+     backgroundColor:'#00fc7a',
+     marginTop:'50px',
+  
+   }
 
   }));
   const classes = useStyles();
@@ -78,13 +82,7 @@ const UserInput = (props) =>{
             result =  ( BMR *activity ).toFixed(0);
 
         }
-      //  const dataObj = {
-      //    Age:age,
-      //    Weight:weight,
-      //    Height:height,
-      //    Gender:gender,
-      //    Activity:activity,
-      //  }
+    
         props.onSaveResult(result);
         props.onSaveBMI(BMI);
         props.onSaveBMR(BMR);
@@ -119,15 +117,16 @@ const UserInput = (props) =>{
              <TextField 
              value={weight}  
              type="number" 
-             label="Weight" 
+             label="Weight(kg)" 
              variant="outlined" 
              {...errWeight && {error:true , helperText:"Enter a valid Weight !"}}  
              onChange={(el) => {setWeight(el.target.value) ; setErrWeight(false)}} 
+             
              />
              <TextField 
              value={height} 
              type="number" 
-             label="Height" 
+             label="Height(m)" 
              variant="outlined" 
              {...errHeight && {error:true , helperText:"Enter a valid Height !"}}    
              onChange={(el) => {setHeight(el.target.value)  ; setErrHeight(false)}} 
@@ -159,7 +158,7 @@ const UserInput = (props) =>{
         </Select>
         {errActivity && <FormHelperText>Select a Valid Activity!</FormHelperText>}
       </FormControl>
-             <Button  variant="contained"  onClick={ toggleBtn ? reset : calculate}> { toggleBtn ? 'Reset' : "Calculate "}</Button>
+            <Button  variant="contained" className={classes.btn} onClick={ toggleBtn ? reset : calculate}> { toggleBtn ? 'Reset' : "Calculate "}</Button>
        </form>
        </>
    );

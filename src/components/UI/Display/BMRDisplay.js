@@ -12,7 +12,7 @@ const BMIDisplay = (props) =>{
           <h2 className={styles.titleHeader}>Body Mass Ratio(BMR)<hr/></h2>
       </div>
           <div className={styles.content}>  
-          <h1>{BMI} <span>Calories/day</span></h1>
+          <h1>{BMI} <span className={styles.unit}>Calories/day</span></h1>
           </div>
           
           <p className={styles.infoPara}> BMR is the amount of energy required to rest in a moderate environment 
