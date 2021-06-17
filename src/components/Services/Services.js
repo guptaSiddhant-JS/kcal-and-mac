@@ -3,7 +3,7 @@ import React from 'react'
 function Services() {
     return (
         <div>
-             <h1>Comming Soon!!!</h1>
+             <h1>  Services Comming Soon!!!</h1>
         </div>
     )
 }

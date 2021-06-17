@@ -1,9 +1,10 @@
 import React , {useState } from "react";
 import Card from '../Card/Card.js';
+
 import UserInput from '../../UserInput/UserInput';
 import ResultDisplay from './ResultDisplay.js';
 import styles from './HomeDisplay.module.css';
-import HelpIcon from '@material-ui/icons/Help';
+
 const HomeDisplay = () =>{
   const [recivedKcal=0, setRecivedKcal] = useState();
  const [BMI, setBMI] = useState();
@@ -22,22 +23,16 @@ const HomeDisplay = () =>{
   return(
     <>
     
-     <div className={styles.root}>
-      <div className={styles.nav}> 
-                 <div>  
-                 </div>
-                 <div className={styles.tags} >
-                     <h3 >Services</h3>
-                    <HelpIcon />
-                 </div>
-                 
-          </div>
-
+     <div className={styles.root}>   
      <div className={styles.main} > 
         <div className={styles.headContainer}> 
-        <h1 className={styles.heading}>kcal & mac</h1>
-        <h2 className={styles.subHeading}> Calories and Macronutrients Calculater</h2>
+            <ResultDisplay 
+                resultData={recivedKcal} 
+                resultBMI={BMI} 
+                resultBMR={BMR} 
+            />
         </div>
+       
         <div className={styles.inputContainer}>
         <Card className={styles.userInputCard}>
            <UserInput 
@@ -48,13 +43,11 @@ const HomeDisplay = () =>{
            />
         </Card>
         </div>
+         
       </div>
+     
      </div>
-    <ResultDisplay 
-    resultData={recivedKcal} 
-    resultBMI={BMI} 
-    resultBMR={BMR} 
-    />
+    
     </>
   );
 }

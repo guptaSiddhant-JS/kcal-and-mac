@@ -1,6 +1,5 @@
 .mainCard{
   margin:4% 0;
-    opacity:0;
     animation: main 1s ease-out forwards;
   
 }
@@ -57,9 +56,4 @@ hr{
     font-size:90%;
    
 }
-}
-@keyframes main{
-  100%{
-    opacity:1;
-  }
 }

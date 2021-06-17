@@ -26,26 +26,22 @@ const UserInput = (props) =>{
       root: {
     '& > *': {
       margin: theme.spacing(1),
-      width: '40ch',
-     
-      
+      width: '25ch',
     },
  
   },
     btn:{
       fontSize:'15px',
       color:'black',
-      width: '30ch',
+      width: '20ch',
      backgroundColor:'#00fc7a',
-     marginTop:'50px',
+     marginTop:'20px',
   
    }
 
   }));
   const classes = useStyles();
 
-   
- 
     const calculate = (el) =>{
       if(age === "" || age <=0 || age >= 90) { 
         setErrAge(true);
@@ -87,7 +83,7 @@ const UserInput = (props) =>{
         props.onSaveBMI(BMI);
         props.onSaveBMR(BMR);
         props.onSaveToggle(toggleBtn);
-       setToggleBtn(prev=> !prev);
+       setToggleBtn(true);
         
       }
       const reset = () =>{
@@ -96,7 +92,7 @@ const UserInput = (props) =>{
         setWeight('');
         setGender('');
         setActivity('');
-        setToggleBtn(prev=> !prev);
+        setToggleBtn(false);
         props.onSaveToggle(toggleBtn);
       }
  
@@ -158,7 +154,9 @@ const UserInput = (props) =>{
         </Select>
         {errActivity && <FormHelperText>Select a Valid Activity!</FormHelperText>}
       </FormControl>
-            <Button  variant="contained" className={classes.btn} onClick={ toggleBtn ? reset : calculate}> { toggleBtn ? 'Reset' : "Calculate "}</Button>
+            <Button  variant="contained" className={classes.btn} onClick={calculate}>Calculate </Button>
+            {toggleBtn && <Button  variant="contained" className={classes.btn} onClick={reset}>Reset </Button> }
+            {/* <Button  variant="contained" className={classes.btn} onClick={ toggleBtn ? reset : calculate}> { toggleBtn ? 'Reset' : "Calculate "}</Button> */}
        </form>
        </>
    );

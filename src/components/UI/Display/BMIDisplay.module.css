@@ -35,7 +35,8 @@ hr{
 .head{ 
     padding:2%;
     /* margin:; */
-    opacity:0.15;}
+    opacity:0.15;
+    }
 .head1{
     background-image: linear-gradient(to top left,white, #00e0ff);
     border-radius:50px 0 0 50px;
